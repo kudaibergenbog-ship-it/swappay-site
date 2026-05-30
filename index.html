@@ -178,11 +178,34 @@ placeholder="Введите номер карты"
 
 </div>
 
-<button onclick="window.open('https://t.me/swappay_exchange_bot')">
+<button onclick="showPayment()">
 
-Перейти в Telegram
+Перейти к оплате
 
 </button>
+  <div id="paymentBox" style="display:none;margin-top:20px;">
+
+<h3>Реквизиты для оплаты</h3>
+
+<p>
+Номер заявки:
+<span id="orderId"></span>
+</p>
+
+<p>
+Адрес кошелька:
+</p>
+
+<p id="walletAddress" style="word-break:break-all;color:#22c55e;">
+</p>
+
+<button onclick="window.open('https://t.me/swappay_exchange_bot')">
+
+Я оплатил
+
+</button>
+
+  </div>
 
 </div>
 
@@ -317,6 +340,44 @@ document
 .getElementById("amount")
 .addEventListener("input",calc);
 
+  function showPayment(){
+
+let coin =
+document.getElementById("coin").value;
+
+let wallet = "";
+
+if(coin === "BTC"){
+wallet = "bc1qrnr7kd9h364uzfcdfvkhtcghld7av06d028e6g";
+}
+
+if(coin === "ETH"){
+wallet = "0x3ffE7e45b2856c8f7F29154E3F92Fa2e1A2c6ffC";
+}
+
+if(coin === "LTC"){
+wallet = "LaKkBt6kCiq7aTSMVheDGomPNVmjCzG4UB";
+}
+
+if(coin === "USDT ERC20"){
+wallet = "0x3ffE7e45b2856c8f7F29154E3F92Fa2e1A2c6ffC";
+}
+
+let order =
+Math.floor(
+1000 + Math.random() * 9000
+);
+
+document.getElementById("orderId")
+.innerText = order;
+
+document.getElementById("walletAddress")
+.innerText = wallet;
+
+document.getElementById("paymentBox")
+.style.display = "block";
+
+  }
 </script>
 
 </body>
