@@ -1,0 +1,150 @@
+Получите:
+<span id="result">
+0 ₸
+</span>
+
+</div>
+
+<button onclick="window.open('https://t.me/swappay_exchange_bot')">
+
+Перейти в Telegram
+
+</button>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+⚡ Выплаты до 15 минут
+</div>
+
+<div class="card">
+🔒 Безопасный обмен
+</div>
+
+<div class="card">
+💬 Поддержка 24/7
+</div>
+
+<div class="card">
+📈 Выгодный курс
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Резервы</h3>
+
+<p>KZT: 2 500 000 ₸</p>
+<p>BTC: 0.25 BTC</p>
+<p>ETH: 4.5 ETH</p>
+<p>LTC: 120 LTC</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Как проходит обмен</h3>
+
+<div class="step">
+1. Создайте заявку
+</div>
+
+<div class="step">
+2. Получите реквизиты
+</div>
+
+<div class="step">
+3. Отправьте криптовалюту
+</div>
+
+<div class="step">
+4. Получите деньги на карту
+</div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Отзывы клиентов</h3>
+
+<p>
+★★★★★ Быстрый обмен USDT
+</p>
+
+<br>
+
+<p>
+★★★★★ Деньги поступили через 10 минут
+</p>
+
+</div>
+
+</div>
+
+<footer>
+
+SwapPay Exchange
+
+<br><br>
+
+<a
+class="telegram"
+href="https://t.me/swappay_exchange_bot"
+target="_blank"
+>
+
+@swappay_exchange_bot
+
+</a>
+
+</footer>
+
+<script>
+
+const rates = {
+
+"USDT ERC20":500,
+"BTC":55000000,
+"ETH":1500000,
+"LTC":45000
+
+};
+
+function calc(){
+
+let coin =
+document.getElementById("coin").value;
+
+let amount =
+parseFloat(
+document.getElementById("amount").value
+) || 0;
+
+let result =
+amount * rates[coin];
+
+document.getElementById("result")
+.innerText =
+result.toLocaleString() + " ₸";
+
+}
+
+document
+.getElementById("coin")
+.addEventListener("change",calc);
+
+document
+.getElementById("amount")
+.addEventListener("input",calc);
+
+</script>
+
+</body>
+</html>
