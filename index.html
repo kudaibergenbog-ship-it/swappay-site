@@ -7,10 +7,15 @@
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
-background:#0f172a;
+}
+
+body{
+background:#0b1120;
 color:white;
 }
 
@@ -18,29 +23,44 @@ header{
 background:#111827;
 padding:20px;
 text-align:center;
-font-size:28px;
+font-size:30px;
 font-weight:bold;
 }
 
 .hero{
-padding:30px;
-max-width:900px;
-margin:auto;
+padding:40px 20px;
+text-align:center;
 }
 
-.exchange-box{
-background:#1e293b;
+.hero h1{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#94a3b8;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.exchange{
+background:#182235;
 padding:25px;
 border-radius:15px;
+margin-bottom:25px;
 }
 
-h2{
-text-align:center;
+.exchange h2{
+margin-bottom:20px;
 }
 
 select,input{
 width:100%;
-padding:12px;
+padding:14px;
 margin-top:10px;
 margin-bottom:15px;
 border:none;
@@ -48,40 +68,59 @@ border-radius:10px;
 font-size:16px;
 }
 
+.result{
+font-size:22px;
+font-weight:bold;
+margin:15px 0;
+color:#22c55e;
+}
+
 button{
 width:100%;
 padding:15px;
 background:#22c55e;
-color:white;
 border:none;
 border-radius:10px;
 font-size:18px;
+color:white;
 cursor:pointer;
 }
 
-.features{
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:15px;
-margin-top:40px;
+margin-bottom:25px;
 }
 
-.feature{
-background:#1e293b;
+.card{
+background:#182235;
 padding:20px;
 border-radius:15px;
-text-align:center;
+}
+
+.card h3{
+margin-bottom:15px;
+}
+
+.step{
+margin-bottom:10px;
 }
 
 footer{
-margin-top:50px;
-padding:20px;
-text-align:center;
 background:#111827;
+padding:25px;
+text-align:center;
+margin-top:30px;
 }
 
-a{
-color:#22c55e;
+.telegram{
+display:inline-block;
+margin-top:15px;
+background:#22c55e;
+padding:12px 20px;
+border-radius:10px;
+color:white;
 text-decoration:none;
 }
 
@@ -94,52 +133,129 @@ text-decoration:none;
 SwapPay Exchange
 </header>
 
-<div class="hero">
+<section class="hero">
 
-<div class="exchange-box">
+<h1>Обмен криптовалюты на карту</h1>
 
-<h2>Обмен криптовалюты на карту</h2>
+<p>
+BTC • ETH • LTC • USDT ERC20
+</p>
 
-<label>Отдаете</label>
+</section>
 
-<select>
+<div class="container">
+
+<div class="exchange">
+
+<h2>Создать заявку</h2>
+
+<select id="coin">
+
 <option>USDT ERC20</option>
 <option>BTC</option>
 <option>ETH</option>
 <option>LTC</option>
+
 </select>
 
-<label>Сумма</label>
+<input
+type="number"
+id="amount"
+placeholder="Введите сумму"
+/>
 
-<input type="number" placeholder="Введите сумму">
+<input
+type="text"
+placeholder="Введите номер карты"
+/>
 
-<label>Номер карты</label>
+<div class="result">
 
-<input type="text" placeholder="Введите номер карты">
+Получите:
+<span id="result">
+0 ₸
+</span>
 
-<button>
-Создать заявку
+</div>
+
+<button onclick="window.open('https://t.me/swappay_exchange_bot')">
+
+Перейти в Telegram
+
 </button>
 
 </div>
 
-<div class="features">
+<div class="grid">
 
-<div class="feature">
-⚡ Быстрые выплаты
+<div class="card">
+⚡ Выплаты до 15 минут
 </div>
 
-<div class="feature">
+<div class="card">
 🔒 Безопасный обмен
 </div>
 
-<div class="feature">
-💬 Поддержка Telegram
+<div class="card">
+💬 Поддержка 24/7
 </div>
 
-<div class="feature">
-💰 Выгодный курс
+<div class="card">
+📈 Выгодный курс
 </div>
+
+</div>
+
+<div class="card">
+
+<h3>Резервы</h3>
+
+<p>KZT: 2 500 000 ₸</p>
+<p>BTC: 0.25 BTC</p>
+<p>ETH: 4.5 ETH</p>
+<p>LTC: 120 LTC</p>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Как проходит обмен</h3>
+
+<div class="step">
+1. Создайте заявку
+</div>
+
+<div class="step">
+2. Получите реквизиты
+</div>
+
+<div class="step">
+3. Отправьте криптовалюту
+</div>
+
+<div class="step">
+4. Получите деньги на карту
+</div>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h3>Отзывы клиентов</h3>
+
+<p>
+★★★★★ Быстрый обмен USDT
+</p>
+
+<br>
+
+<p>
+★★★★★ Деньги поступили через 10 минут
+</p>
 
 </div>
 
@@ -147,14 +263,61 @@ SwapPay Exchange
 
 <footer>
 
-Telegram:
+SwapPay Exchange
+
 <br><br>
 
-<a href="#">
+<a
+class="telegram"
+href="https://t.me/swappay_exchange_bot"
+target="_blank"
+>
+
 @swappay_exchange_bot
+
 </a>
 
 </footer>
+
+<script>
+
+const rates = {
+
+"USDT ERC20":500,
+"BTC":55000000,
+"ETH":1500000,
+"LTC":45000
+
+};
+
+function calc(){
+
+let coin =
+document.getElementById("coin").value;
+
+let amount =
+parseFloat(
+document.getElementById("amount").value
+) || 0;
+
+let result =
+amount * rates[coin];
+
+document.getElementById("result")
+.innerText =
+result.toLocaleString() + " ₸";
+
+}
+
+document
+.getElementById("coin")
+.addEventListener("change",calc);
+
+document
+.getElementById("amount")
+.addEventListener("input",calc);
+
+</script>
 
 </body>
 </html>
