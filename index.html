@@ -212,6 +212,12 @@ placeholder="ФИО (необязательно)"
 
 <p id="walletAddress" style="word-break:break-all;color:#22c55e;">
 </p>
+    
+    <button onclick="copyWallet()">
+
+Скопировать адрес кошелька
+
+</button>
 
 <button onclick="window.open('https://t.me/swappay_exchange_bot')">
 
@@ -391,6 +397,17 @@ document.getElementById("walletAddress")
 document.getElementById("paymentBox")
 .style.display = "block";
 
+    function copyWallet(){
+
+let wallet =
+document.getElementById("walletAddress")
+.innerText;
+
+navigator.clipboard.writeText(wallet);
+
+alert("Адрес кошелька скопирован");
+
+    }
   }
 </script>
 
