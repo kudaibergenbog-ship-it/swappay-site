@@ -354,8 +354,6 @@ const response = await fetch(
 
 const data = await response.json();
 
-const data = await response.json();
-
 rates = {
 
 "BTC": data.bitcoin.usd * 1.005,
@@ -393,6 +391,8 @@ document.getElementById("result")
 "$" + result.toLocaleString(undefined, {
 maximumFractionDigits: 2
 });
+
+}
 
 document
 .getElementById("coin")
