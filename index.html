@@ -271,7 +271,7 @@ placeholder="ФИО (необязательно)"
 
 <h3>Резервы</h3>
 
-<p>KZT: 4 563 230 ₸</p>
+<p>USD: 8345 usd</p>
 <p>BTC: 0.2434 BTC</p>
 <p>ETH: 3.55 ETH</p>
 <p>LTC: 176.453 LTC</p>
@@ -354,7 +354,7 @@ const response = await fetch(
 
 const data = await response.json();
 
-alert(JSON.stringify(data));
+const data = await response.json();
 
 rates = {
 
@@ -369,7 +369,6 @@ calc();
 
 } catch(error) {
 
-alert("Ошибка загрузки курсов");
 console.log(error);
 
 }
@@ -391,9 +390,9 @@ amount * (rates[coin] || 0);
 
 document.getElementById("result")
 .innerText =
-result.toLocaleString() + " ₸";
-
-}
+"$" + result.toLocaleString(undefined, {
+maximumFractionDigits: 2
+});
 
 document
 .getElementById("coin")
