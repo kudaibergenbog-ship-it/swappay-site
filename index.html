@@ -219,9 +219,27 @@ placeholder="ФИО (необязательно)"
 
 </button>
 
-<button onclick="window.open('https://t.me/swappay_exchange_bot')">
+<br><br>
 
-Я оплатил
+<button onclick="paymentDone()">
+
+✅ Я оплатил
+
+</button>
+
+<br><br>
+
+<button onclick="checkStatus()">
+
+🔍 Проверить статус заявки
+
+</button>
+
+<br><br>
+
+<button onclick="goHome()">
+
+🏠 На главную
 
 </button>
 
@@ -409,6 +427,41 @@ alert("Адрес кошелька скопирован");
 
     }
   }
+  function copyWallet(){
+
+let wallet =
+document.getElementById("walletAddress")
+.innerText;
+
+navigator.clipboard.writeText(wallet);
+
+alert("Адрес кошелька скопирован");
+
+}
+
+function paymentDone(){
+
+alert(
+"Платёж принят системой.\n\n" +
+"Ожидайте проверки поступления средств."
+);
+
+}
+
+function checkStatus(){
+
+alert(
+"⏳ Платёж находится в обработке.\n\n" +
+"Среднее время обработки: 5–30 минут."
+);
+
+}
+
+function goHome(){
+
+location.reload();
+
+}
 </script>
 
 </body>
