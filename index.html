@@ -342,8 +342,6 @@ target="_blank"
 
 <script>
 
-const rates = {
-
 let rates = {};
 
 async function loadRates() {
@@ -386,7 +384,7 @@ document.getElementById("amount").value
 ) || 0;
 
 let result =
-amount * rates[coin];
+amount * (rates[coin] || 0);
 
 document.getElementById("result")
 .innerText =
