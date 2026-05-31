@@ -354,6 +354,8 @@ const response = await fetch(
 
 const data = await response.json();
 
+alert(JSON.stringify(data));
+
 rates = {
 
 "BTC": data.bitcoin.kzt * 1.005,
