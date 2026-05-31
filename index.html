@@ -271,10 +271,10 @@ placeholder="ФИО (необязательно)"
 
 <h3>Резервы</h3>
 
-<p>KZT: 2 500 000 ₸</p>
-<p>BTC: 0.25 BTC</p>
-<p>ETH: 4.5 ETH</p>
-<p>LTC: 120 LTC</p>
+<p>KZT: 4 563 230 ₸</p>
+<p>BTC: 0.2434 BTC</p>
+<p>ETH: 3.55 ETH</p>
+<p>LTC: 176.453 LTC</p>
 
 </div>
 
@@ -344,12 +344,36 @@ target="_blank"
 
 const rates = {
 
-"USDT ERC20":500,
-"BTC":55000000,
-"ETH":1500000,
-"LTC":45000
+let rates = {};
+
+async function loadRates() {
+
+try {
+
+const response = await fetch(
+"https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,litecoin,tether&vs_currencies=kzt"
+);
+
+const data = await response.json();
+
+rates = {
+
+"BTC": data.bitcoin.kzt * 1.005,
+"ETH": data.ethereum.kzt * 1.005,
+"LTC": data.litecoin.kzt * 1.005,
+"USDT ERC20": data.tether.kzt * 1.005
 
 };
+
+calc();
+
+} catch(error) {
+
+console.log(error);
+
+}
+
+}
 
 function calc(){
 
@@ -462,6 +486,7 @@ function goHome(){
 location.reload();
 
 }
+loadRates();
 </script>
 
 </body>
